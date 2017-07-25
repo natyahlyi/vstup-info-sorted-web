@@ -1,0 +1,16 @@
+version: '2'
+services:
+  memcached:
+    image: memcached:latest
+    restart: always
+    ports:
+      - "11212:11211"
+  vstup:
+    build: .
+    command: bash -c "python run.py "
+    volumes:
+      - .:/code
+    ports:
+      - "8080:8080"
+    depends_on:
+      - memcached

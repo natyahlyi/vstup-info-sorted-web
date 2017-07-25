@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Рейтингові списки 2017 по пріорітетам!{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="center">
+                <h1 class="flow-text"><b>Рейтингові списки по пріорітетам!</b></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col offset-l2 l9 m12 s12 ">
+                <form action="{{ url('home') }}" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="input-field col l8 m9 s12">
+                            <i class="material-icons prefix ">search</i>
+                            <input placeholder="Наприклад: http://www.vstup.info/2017/97/i2017i97p369386.html" id="id_ulr" type="text" name="url" value="{{ current_name }}" required>
+                            <label for="id_ulr">Посилання з рейтинговим списком на vstup.info</label>
+                        </div>
+                        <div class="input-field col l2 m3 s12">
+                            <button class="btn waves-effect waves-light light-blue darken-2 center" type="submit">Шукати</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="center">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- vstup-sorted-res1 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7741377437492646"
+                 data-ad-slot="5948169136"
+                 data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        {% if not invalid %}
+            <div class="row">
+                <div class="center">
+                    <h1 class="flow-text">Результат для <i><a rel="nofollow" target="_blank" href="{{ req_u }}">{{ req_u }}</a></i></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col l5 m12 s12">
+                    <i class="material-icons prefix ">search</i>
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Прізвище">
+                    <label for="myInput">Фільтрувати по прізвищу</label>
+                </div>
+            </div>
+            <table class="bordered"  id="myTable">
+                <thead>
+                <tr>
+                    <th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Місце по приорітетам">№</th>
+                    <th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Місце по балам">#</th>
+                    <th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Прізвище І.Б.">ПІБ</th>
+                    <th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Приорітет">П</th>
+                    <th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Конкурсний бал">Σ</th>
+                    <th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Подано оригінали документів">Д</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for r in records %}
+                    <tr>
+                        <td><b>{{ r.real }}</b></td>
+                        <td>{{ r.fake }}</td>
+                        <td>{{ r.name }}</td>
+                        <td>{{ r.priority }}</td>
+                        <td>{{ r.score }}</td>
+                        <td>{{ r.originals }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        {% else %}
+            <div class="row">
+                <div class="center">
+                    <h1 class="flow-text"><b>Введено некоректне посилання спробуйте щераз.</b></h1>
+                    <a href="{{ url('home') }}" class="btn waves-effect waves-light light-blue darken-2 center" type="submit">На головну</a>
+                </div>
+            </div>
+        {% endif %}
+
+
+    <script>
+        function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+{% endblock %}

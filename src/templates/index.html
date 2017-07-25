@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Рейтингові списки по пріорітетам!{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="center">
+                <h1 class="flow-text"><b>Рейтингові списки по пріорітетам!</b></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col offset-l2 l9 m12 s12 ">
+                <form action="{{ url('home') }}" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="input-field col l8 m9 s12">
+                            <i class="material-icons prefix ">search</i>
+                            <input placeholder="Наприклад: http://www.vstup.info/2017/97/i2017i97p369386.html" id="id_ulr" type="text" name="url" value="{{ current_name }}" required>
+                            <label for="id_ulr">Посилання з рейтинговим списком на vstup.info</label>
+                        </div>
+                        <div class="input-field col l2 m3 s12">
+                            <button class="btn waves-effect waves-light light-blue darken-2 center" type="submit">Шукати</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="center">
+                <h1 class="flow-text"><b>Як користуватись</b></h1>
+            </div>
+
+            <ul class="center">
+                <li class="flow-text">
+                    <p>1) На сайті <a target="_blank"  href="http://www.vstup.info/">www.vstup.info</a> знайдіть рейтинговий список, який вас цікавить.</p>
+                </li>
+                <li class="flow-text">
+                    <p>2) Скопіюйте посилання на цей список (н.п: <a target="_blank"  href="http://www.vstup.info/2017/97/i2017i97p369386.html">http://www.vstup.info/2017/97/i2017i97p369386.html</a>).</p>
+                </li>
+                <li class="flow-text">
+                    <p>3) Вставте це посилання в пошуковий рядок на цьому сайті та натисніть Enter або кнопку шукати.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="center">
+                <h1 class="flow-text"><b>Як це працює</b></h1>
+            </div>
+
+            <ul class="center">
+                <li class="flow-text">
+                    <p>На сайті <a rel="nofollow" target="_blank"  href="http://www.vstup.info/">www.vstup.info</a> рейтингові списки відсортовані за конкурсним балом, проте з системою приорітетів це не відображає реальну можливисть вступу на ту чи іншу спеціальність.</p>
+                    <p>Тому цей сайт сортує спочатку за приорітетом, а потім за конкурсним балом, що вирішує вищевказану проблему з приорітетами.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="center">
+                <!-- vstup-sorted -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-7741377437492646"
+                     data-ad-slot="1774132164"
+                     data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+        </div>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+
+
+{% endblock %}
