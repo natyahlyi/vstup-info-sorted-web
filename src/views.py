@@ -4,12 +4,12 @@ from utils import get_rating
 
 from urllib.parse import urlparse, urlunparse
 
-from aiocache import MemcachedCache
+from aiocache import RedisCache
 from aiocache.serializers import PickleSerializer
 
-cache = MemcachedCache(serializer=PickleSerializer,
-                       endpoint="memcached"
-                       )
+cache = RedisCache(serializer=PickleSerializer,
+                   endpoint="redis"
+                   )
 
 
 class Home(web.View):
