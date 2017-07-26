@@ -21,7 +21,7 @@ class Home(web.View):
         data = await self.request.post()
         url = data.get('url', None)
         url_p = urlparse(url)
-        if url_p.netloc != 'www.vstup.info':
+        if url_p.netloc not in ('www.vstup.info', 'vstup.info'):
             return {'invalid': True}
         if url:
             key = url_p.path
