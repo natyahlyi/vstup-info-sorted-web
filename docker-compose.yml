@@ -7,7 +7,7 @@ services:
       - "11212:11211"
   vstup:
     build: .
-    command: bash -c "python run.py "
+    command: bash -c "cd /code/src && python main.py "
     volumes:
       - .:/code
     ports:

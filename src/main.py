@@ -1,14 +1,14 @@
 import asyncio
 import logging
 
-
+import os
 import jinja2
 
 import aiohttp_jinja2
 from aiohttp import web
 
-from .middlewares import setup_middlewares
-from .routes import setup_routes
+from middlewares import setup_middlewares
+from routes import setup_routes
 
 
 def init(loop):
@@ -17,7 +17,7 @@ def init(loop):
 
     # setup Jinja2 template renderer
     aiohttp_jinja2.setup(
-        app, loader=jinja2.PackageLoader('src', 'templates'))
+        app, loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
 
     # setup views and routes
     setup_routes(app)

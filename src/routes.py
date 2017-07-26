@@ -1,5 +1,5 @@
 import os
-from .views import Home
+from views import Home
 
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

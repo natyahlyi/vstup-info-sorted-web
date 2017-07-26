@@ -45,6 +45,17 @@
                 </div>
             </div>
             <div class="row">
+                <div class="center">
+                    {{ s_title  }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
+                    {{ stats  }}
+                </div>
+            </div>
+            <div class="divider" style="margin-bottom: 30px"></div>
+            <div class="row">
                 <div class="input-field col l5 m12 s12">
                     <i class="material-icons prefix ">search</i>
                     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Прізвище">
@@ -59,6 +70,7 @@
                     <th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Прізвище І.Б.">ПІБ</th>
                     <th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Пріоритет">П</th>
                     <th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Конкурсний бал">Σ</th>
+                    <th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Деталізація">Деталізація</th>
                     <th class="tooltipped" data-position="top" data-delay="50" data-tooltip="Подано оригінали документів">Д</th>
                 </tr>
                 </thead>
@@ -71,6 +83,7 @@
                         <td>{{ r.name }}</td>
                         <td>{{ r.priority }}</td>
                         <td>{{ r.score }}</td>
+                        <td>{{ r.details }}</td>
                         <td>{{ r.originals }}</td>
                     </tr>
                 {% endfor %}
@@ -108,5 +121,8 @@
                 }
             }
         }
+        $(function () {
+            $('.title-description').addClass( "flow-text" );
+        })
     </script>
 {% endblock %}
