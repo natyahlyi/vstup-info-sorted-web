@@ -15,11 +15,12 @@
                     <div class="row">
                         <div class="input-field col l8 m9 s12">
                             <i class="material-icons prefix ">search</i>
-                            <input placeholder="Наприклад: http://www.vstup.info/2017/97/i2017i97p369386.html" id="id_ulr" type="text" name="url" value="{{ current_name }}" required>
+                            <input placeholder="Наприклад: http://www.vstup.info/2017/97/i2017i97p369386.html"
+                                   id="id_ulr" name="url" value="{{ current_name }}" required>
                             <label for="id_ulr">Посилання з рейтинговим списком на vstup.info</label>
                         </div>
                         <div class="input-field col l2 m3 s12">
-                            <button class="btn waves-effect waves-light light-blue darken-2 center" type="submit">Шукати</button>
+                            <button class="btn waves-effect waves-light light-blue darken-2 center">Шукати</button>
                         </div>
                     </div>
                 </form>
@@ -94,7 +95,8 @@
             <div class="row">
                 <div class="center">
                     <h1 class="flow-text"><b>Введено некоректне посилання спробуйте щераз.</b></h1>
-                    <a href="{{ url('home') }}" class="btn waves-effect waves-light light-blue darken-2 center" type="submit">На головну</a>
+                    <a href="{{ url('home') }}" class="btn waves-effect waves-light light-blue darken-2 center"
+                       type="submit">На головну</a>
                 </div>
             </div>
         {% endif %}
